@@ -1,0 +1,49 @@
+\documentclass{book}
+\usepackage{tikz}
+\usetikzlibrary{positioning,chains,fit,shapes,calc}
+
+\begin{document}
+
+\definecolor{myblue}{RGB}{80,80,160}
+\definecolor{mygreen}{RGB}{80,160,80}
+
+\begin{tikzpicture}[thick,
+  every node/.style={draw,circle},
+  fsnode/.style={fill=myblue},
+  ssnode/.style={fill=mygreen},
+  every fit/.style={ellipse,draw,inner sep=-2pt,text width=2cm},
+  ->,shorten >= 3pt,shorten <= 3pt
+]
+
+% the vertices of Critic
+\begin{scope}[start chain=going below,node distance=7mm]
+    \node[fsnode,on chain] (c1) [label=left: $ASingh$] {};
+    \node[fsnode,on chain] (c2) [label=left: $BKumar$] {};
+    \node[fsnode,on chain] (c3) [label=left: $CDevi$] {};
+\end{scope}
+
+% the vertices of V
+\begin{scope}[xshift=4cm,yshift=-0.5cm,start chain=going below,node distance=7mm]
+  \node[ssnode,on chain] (m1) [label=right: $M1$] {};
+  \node[ssnode,on chain] (m2) [label=right: $M2$] {};
+  \node[ssnode,on chain] (m3) [label=right: $M3$] {};
+  \node[ssnode,on chain] (m4) [label=right: $M4$] {};
+  \node[ssnode,on chain] (m5) [label=right: $M5$] {};
+\end{scope}
+
+% the set U
+\node [myblue,fit=(c1) (c3),label=above:$Critic$] {};
+% the set V
+\node [mygreen,fit=(m1) (m5),label=above:$Movies$] {};
+
+% the edges
+\draw (c1) -- (m1);
+\draw (c1) -- (m3);
+\draw (c1) -- (m5);
+\draw (c2) -- (m1);
+\draw (c2) -- (m5);
+\draw (c3) -- (m2);
+\draw (c3) -- (m4);
+\end{tikzpicture}
+
+\end{document}
