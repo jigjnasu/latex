@@ -1,0 +1,52 @@
+\documentclass{book}
+\usepackage{tikz}
+\usetikzlibrary{positioning,chains,fit,shapes,calc}
+
+\begin{document}
+
+\definecolor{myblue}{RGB}{80,80,160}
+\definecolor{mygreen}{RGB}{80,160,80}
+
+\begin{tikzpicture}[thick,
+  every node/.style={draw,circle},
+  fsnode/.style={fill=myblue},
+  ssnode/.style={fill=mygreen},
+  every fit/.style={ellipse,draw,inner sep=-2pt,text width=2cm},
+  ->,shorten >= 3pt,shorten <= 3pt
+]
+
+% the vertices of Partner
+\begin{scope}[start chain=going below,node distance=7mm]
+    \node[fsnode,on chain] (p11) [label=left: $P11$] {};
+    \node[fsnode,on chain] (p12) [label=left: $P12$] {};
+    \node[fsnode,on chain] (p13) [label=left: $P13$] {};
+    \node[fsnode,on chain] (p14) [label=left: $P14$] {};
+    \node[fsnode,on chain] (p15) [label=left: $P15$] {};
+\end{scope}
+
+% the vertices of Partner
+\begin{scope}[xshift=4cm,yshift=-0.5cm,start chain=going below,node distance=7mm]
+  \node[ssnode,on chain] (p21) [label=right: $P21$] {};
+  \node[ssnode,on chain] (p22) [label=right: $P22$] {};
+  \node[ssnode,on chain] (p23) [label=right: $P23$] {};
+  \node[ssnode,on chain] (p24) [label=right: $P24$] {};
+  \node[ssnode,on chain] (p25) [label=right: $P25$] {};
+\end{scope}
+
+% the set U
+\node [myblue,fit=(p11) (p15),label=above:$Partner$] {};
+% the set V
+\node [mygreen,fit=(p21) (p25),label=above:$Partner$] {};
+
+% the edges
+\draw (p11) -- (p25);
+\draw (p11) -- (p23);
+\draw (p12) -- (p24);
+\draw (p13) -- (p22);
+\draw (p14) -- (p21);
+\draw (p14) -- (p25);
+\draw (p15) -- (p21);
+\draw (p15) -- (p25);
+\end{tikzpicture}
+
+\end{document}
