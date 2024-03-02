@@ -1,0 +1,39 @@
+\documentclass[tikz,border=5mm]{standalone}
+\usetikzlibrary{decorations.markings}
+
+\begin{document}
+\begin{tikzpicture}
+    \tikzset{
+        myarrow/.style={
+            postaction={
+                decorate,
+                decoration={
+                    markings,
+                    mark=at position #1 with {\arrow{latex}},
+                },
+            },
+        },
+    }
+
+    % Vertices
+    \draw[fill=black] (30,  30) circle (2pt) node[above] {$Delhi$};
+    \draw[fill=black] (40,  40) circle (2pt) node[above] {$New York$};
+    \draw[fill=black] (40,  35) circle (2pt) node[above] {$Chicago$};
+    \draw[fill=black] (40,  30) circle (2pt) node[above] {$Frankfurt$};
+    \draw[fill=black] (40,  25) circle (2pt) node[above] {$Sharjah$};
+    \draw[fill=black] (20,  30) circle (2pt) node[above] {$Sydney$};
+    \draw[fill=black] (20,  40) circle (2pt) node[above] {$Moscow$};
+    \draw[fill=black] (20,  35) circle (2pt) node[above] {$Birmingham$};
+    \draw[fill=black] (20,  25) circle (2pt) node[above] {$London$};
+
+    % Arcs
+    \draw[->, myarrow=.5] (30,30) -- node[midway, above right] {AA293, 00:20}  (40,40);
+    \draw[->, myarrow=.5] (30,30) -- node[midway, above right] {AI127, 02:35}  (40,35);
+    \draw[->, myarrow=.5] (30,30) -- node[midway, above right] {AI121, 14:00}  (40,30);
+    \draw[->, myarrow=.5] (30,30) -- node[midway, above right] {G9464, 03:15}  (40,25);
+    \draw[->, myarrow=.5] (30,30) -- node[midway, above right] {AI301, 01:45}  (20,30);
+    \draw[->, myarrow=.5] (30,30) -- node[midway, above right] {SU233, 01:45}  (20,40);
+    \draw[->, myarrow=.5] (30,30) -- node[midway, above right] {AI113, 13:15}  (20,35);
+    \draw[->, myarrow=.5] (30,30) -- node[midway, above right] {AI111, 07:15}  (20,25);
+\end{tikzpicture}
+\end{document}
