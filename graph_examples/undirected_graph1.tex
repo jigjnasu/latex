@@ -1,0 +1,31 @@
+\documentclass[tikz,border=5mm]{standalone}
+\usetikzlibrary{decorations.markings}
+
+\begin{document}
+\begin{tikzpicture}[every loop/.style={min distance=30mm}]
+
+    % these are the vertices
+    \draw[fill=black] (5,5) circle (2pt) node[above] {$a$};
+    \draw[fill=black] (10,5) circle (2pt) node[above] {$b$};
+    \draw[fill=black] (15,5) circle (2pt) node[above] {$c$};
+    \draw[fill=black] (5,0) circle (2pt) node[below] {$e$};
+    \draw[fill=black] (10,0) circle (2pt) node[below] {$d$};
+    \draw[fill=black] (15,0) circle (2pt) node[below] {$f$};
+
+    \draw (5,5) -- (15,5);
+    \draw (10,5) -- (10,0) -- (15,5);
+    \draw (5,5) to [out=90,in=90,looseness=0.3] (15,5);
+    \draw (5,5) to [out=180,in=90,looseness=5] (5,5);
+    \draw (15,5) to [out=360,in=90,looseness=5] (15,5);
+    \draw (5,0) to [out=180,in=270,looseness=5] (5,0);
+    \draw (5,5) to [out=180,in=180,looseness=0.3] (5,0);
+    \draw (5,5) to [out=0,in=0,looseness=0.3] (5,0);
+    \draw (10,0) to [out=90,in=90,looseness=0.3] (5,0);
+    \draw (10,0) to [out=270,in=270,looseness=0.3] (5,0);
+
+    \draw[thick] (5,5) to [out=-180,in=50, loop, style={min distance=12mm}] (5,5);
+    \draw[thick] (15,5) to [out=-200,in=45, loop, style={min distance=12mm}] (15,5);
+    \draw[thick] (5,0) to [out=-180,in=0-45, loop, style={min distance=12mm}] (5,0);
+
+\end{tikzpicture}
+\end{document}
