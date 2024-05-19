@@ -1,0 +1,66 @@
+\documentclass[tikz,border=5mm]{standalone}
+\usetikzlibrary{decorations.markings}
+
+\begin{document}
+\begin{tikzpicture}[every loop/.style={min distance=30mm}]
+
+    % these are the vertices
+    \draw[fill=black] (10,10) circle (2pt) node[above] {};
+    \draw[fill=black] (12,10) circle (2pt) node[above] {};
+    \draw[fill=black] (8,8) circle (2pt) node[above] {};
+    \draw[fill=black] (14,8) circle (2pt) node[above] {};
+    \draw[fill=black] (8,6) circle (2pt) node[above] {};
+    \draw[fill=black] (14,6) circle (2pt) node[above] {};
+    \draw[fill=black] (11,4) circle (2pt) node[above] {};
+
+    \draw (10,10) -- (12,10);
+    \draw (10,10) -- (8,8);
+    \draw (10,10) -- (14,8);
+    \draw (10,10) -- (8,6);
+    \draw (10,10) -- (14,6);
+    \draw (10,10) -- (11,4);
+
+    \draw (12,10) -- (10,10);
+    \draw (12,10) -- (8,8);
+    \draw (12,10) -- (14,8);
+    \draw (12,10) -- (8,6);
+    \draw (12,10) -- (14,6);
+    \draw (12,10) -- (11,4);
+
+    \draw (8,8) -- (10,10);
+    \draw (8,8) -- (12,10);
+    \draw (8,8) -- (14,8);
+    \draw (8,8) -- (8,6);
+    \draw (8,8) -- (14,6);
+    \draw (8,8) -- (11,4);
+
+    \draw (14,8) -- (10,10);
+    \draw (14,8) -- (12,10);
+    \draw (14,8) -- (8,8);
+    \draw (14,8) -- (8,6);
+    \draw (14,8) -- (14,6);
+    \draw (14,8) -- (11,4);
+
+    \draw (8,6) -- (10,10);
+    \draw (8,6) -- (12,10);
+    \draw (8,6) -- (8,8);
+    \draw (8,6) -- (14,8);
+    \draw (8,6) -- (14,6);
+    \draw (8,6) -- (11,4);
+
+    \draw (14,6) -- (10,10);
+    \draw (14,6) -- (12,10);
+    \draw (14,6) -- (8,8);
+    \draw (14,6) -- (14,8);
+    \draw (14,6) -- (8,6);
+    \draw (14,6) -- (11,4);
+
+    \draw (11,4) -- (10,10);
+    \draw (11,4) -- (12,10);
+    \draw (11,4) -- (8,8);
+    \draw (11,4) -- (14,8);
+    \draw (11,4) -- (8,6);
+    \draw (11,4) -- (14,6);
+
+\end{tikzpicture}
+\end{document}
