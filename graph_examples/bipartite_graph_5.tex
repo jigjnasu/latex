@@ -1,0 +1,50 @@
+\documentclass{book}
+\usepackage{tikz}
+\usetikzlibrary{positioning,chains,fit,shapes,calc}
+
+\begin{document}
+
+\definecolor{myblue}{RGB}{80,80,160}
+\definecolor{mygreen}{RGB}{80,160,80}
+
+\begin{tikzpicture}[thick,
+  every node/.style={draw,circle},
+  fsnode/.style={fill=myblue},
+  ssnode/.style={fill=mygreen},
+  every fit/.style={ellipse,draw,inner sep=-2pt,text width=2cm},
+  ->,shorten >= 3pt,shorten <= 3pt
+]
+
+% the vertices of Critic
+\begin{scope}[start chain=going below,node distance=7mm]
+    \node[fsnode,on chain] (p1) [label=left: $Ping$] {};
+    \node[fsnode,on chain] (p2) [label=left: $Quiggley$] {};
+    \node[fsnode,on chain] (p3) [label=left: $Ruiz$] {};
+    \node[fsnode,on chain] (p4) [label=left: $Sitea$] {};
+\end{scope}
+
+% the vertices of V
+\begin{scope}[xshift=4cm,yshift=-0.5cm,start chain=going below,node distance=7mm]
+  \node[ssnode,on chain] (e1) [label=right: $hardware$] {};
+  \node[ssnode,on chain] (e2) [label=right: $software$] {};
+  \node[ssnode,on chain] (e3) [label=right: $networking$] {};
+  \node[ssnode,on chain] (e4) [label=right: $wireless$] {};
+\end{scope}
+
+% the set U
+\node [myblue,fit=(p1) (p4),label=above:$Employees$] {};
+% the set V
+\node [mygreen,fit=(e1) (e4),label=above:$Areas$] {};
+
+% the edges
+\draw (p1) -- (e1);
+\draw (p1) -- (e3);
+\draw (p2) -- (e2);
+\draw (p2) -- (e3);
+\draw (p3) -- (e3);
+\draw (p3) -- (e4);
+\draw (p4) -- (e1);
+\draw (p4) -- (e2);
+\end{tikzpicture}
+
+\end{document}
